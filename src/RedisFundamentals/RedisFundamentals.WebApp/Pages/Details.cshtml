@@ -1,0 +1,67 @@
+﻿@page
+@model DetailsModel
+@{
+    ViewData["Title"] = "Details page";
+}
+
+<partial name="_SystemInfo" model="@Model.SystemInfo" />
+
+<div class="card">
+    <h5 class="card-header">@Model.Repo.full_name</h5>
+    <div class="card-body row">
+        <div class="col-sm-3">Owner:</div>
+        <div class="col-sm-9">@Model.Repo.owner.login<img src="@Model.Repo.owner.avatar_url" style="width:100px" /></div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Description:</div>
+        <div class="col-sm-9">@Model.Repo.description</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Fork:</div>
+        <div class="col-sm-9">@Model.Repo.fork</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Created at:</div>
+        <div class="col-sm-9">@Model.Repo.created_at</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Updated at:</div>
+        <div class="col-sm-9">@Model.Repo.updated_at</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Updated at:</div>
+        <div class="col-sm-9">@Model.Repo.updated_at</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Size:</div>
+        <div class="col-sm-9">@Model.Repo.size</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Stargazers Count:</div>
+        <div class="col-sm-9">@Model.Repo.stargazers_count</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Watchers Count:</div>
+        <div class="col-sm-9">@Model.Repo.watchers_count</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Forks Count:</div>
+        <div class="col-sm-9">@Model.Repo.forks_count</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Archived:</div>
+        <div class="col-sm-9">@Model.Repo.archived</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Disabled:</div>
+        <div class="col-sm-9">@Model.Repo.disabled</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Open Issues Count:</div>
+        <div class="col-sm-9">@Model.Repo.open_issues_count</div>
+    </div>
+    <div class="card-body row">
+        <div class="col-sm-3">Open Issues Count:</div>
+        <div class="col-sm-9">@Model.Repo.open_issues_count</div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model Models.SystemInfo
+<div class="row justify-content-md-center pb-5">
+    <div class="card">
+        <h5 class="card-header">System information</h5>
+        <div class="card-body">
+            <p><b>Local (Máquina | Container | Pod):</b> @Model.Local</p>
+            <p><b>Kernel:</b> @Model.Kernel</p>
+            <p><b>Target Framework:</b> @Model.TargetFramework</p>
+            <p><b>Mensagem Fixa:</b> @TempData["MensagemFixa"]</p>
+        </div>
+    </div>
+</div>

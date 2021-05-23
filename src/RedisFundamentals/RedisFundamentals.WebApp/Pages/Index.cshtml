@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo(a)!</h1>
+    <partial name="_SystemInfo" model="@Model.SystemInfo" />
+
+    <div class="row">
+        @foreach (var item in Model.Repos)
+        {
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.name</h5>
+                        <p class="card-text">@item.description</p>
+                        <a href="/Details?repoName=@item.full_name" class="btn btn-primary">View nore</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
