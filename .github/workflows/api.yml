@@ -30,7 +30,7 @@ jobs:
     - name: Login no Azure
       uses: Azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_API }}
     - name: Deployment to Azure App Service
       uses: Azure/webapps-deploy@v2
       with:
