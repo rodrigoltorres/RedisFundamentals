@@ -1,0 +1,38 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    env:
+      CAMINHO_PROJETO_WEBAPP: ./src/RedisFundamentals/RedisFundamentals.WebApp/RedisFundamentals.WebApp.csproj
+      NOME_WEBAPP_AZURE: redisfundamentalsweb
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.CAMINHO_PROJETO_WEBAPP }}
+    - name: Build
+      run: dotnet build ${{ env.CAMINHO_PROJETO_WEBAPP }} --no-restore
+    - name: Publish
+      run: dotnet publish ${{ env.CAMINHO_PROJETO_WEBAPP }} -c Release -o app
+    - name: Login no Azure
+      uses: Azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Deployment to Azure App Service
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.NOME_WEBAPP_AZURE }}
+        package: './app'
