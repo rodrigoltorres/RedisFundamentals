@@ -24,7 +24,7 @@
         [HttpGet("repo/{repoName}")]
         public async Task<DTO.Repository> GetRepo(string repoName)
         {
-            return await gitHubService.GetRepo(System.Web.HttpUtility.UrlDecode(repoName));
+            return await gitHubService.GetRepo(repoName);
         }
     }
 }

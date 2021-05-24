@@ -26,7 +26,7 @@
 
         public async Task<Repository> GetRepo(string repoName)
         {
-            var getReposTask = client.GetStreamAsync($"/repos/{repoName}");
+            var getReposTask = client.GetStreamAsync($"/repos/{repoName.Replace("--", "/")}");
 
             using Stream decompressed = new GZipStream(await getReposTask, CompressionMode.Decompress);
             return await JsonSerializer.DeserializeAsync<Repository>(decompressed);

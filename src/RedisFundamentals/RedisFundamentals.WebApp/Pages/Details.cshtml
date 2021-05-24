@@ -6,6 +6,8 @@
 
 <partial name="_SystemInfo" model="@Model.SystemInfo" />
 
+@if (Model.Repo is not null)
+{
 <div class="card">
     <h5 class="card-header">@Model.Repo.full_name</h5>
     <div class="card-body row">
@@ -65,3 +67,4 @@
         <div class="col-sm-9">@Model.Repo.open_issues_count</div>
     </div>
 </div>
+}

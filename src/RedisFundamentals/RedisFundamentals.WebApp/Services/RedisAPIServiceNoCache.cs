@@ -37,7 +37,7 @@
         {
             try
             {
-                var getReposTask = client.GetStreamAsync($"/repo/{repoName}");
+                var getReposTask = client.GetStreamAsync($"/repo/{repoName.Replace("/","--")}");
                 return await JsonSerializer.DeserializeAsync<Repository>(await getReposTask);
             }
             catch (Exception ex)

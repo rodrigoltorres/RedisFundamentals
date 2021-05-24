@@ -25,11 +25,10 @@
             TempData["MensagemFixa"] = "Teste";
             try
             {
-                Repo = await gitHubService.GetRepo(System.Web.HttpUtility.UrlEncode(repoName));
+                Repo = await gitHubService.GetRepo(repoName);
             }
             catch (Exception ex)
             {
-                Repo = new Repository();
                 TempData["MensagemFixa"] = ex.Message;
             }
             
